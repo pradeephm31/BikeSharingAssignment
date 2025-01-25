@@ -1,5 +1,5 @@
 # Bike Sharing Assignment
-> Outline a brief description of your project.
+> BoomBikes, a bike-sharing provider, has experienced a significant drop in revenue due to the pandemic and is seeking ways to recover once the economy stabilizes. To prepare for the post-lockdown demand, the company aims to understand the factors that influence bike-sharing demand in the American market. With a dataset on daily bike demand, including variables like weather conditions and demographic trends, BoomBikes plans to build a model that predicts bike demand based on these factors. This model will allow the company to gain insights into demand patterns, enabling them to adjust their business strategy accordingly to meet customer expectations and optimize service delivery as the market recovers.
 
 
 ## Table of Contents
@@ -8,45 +8,74 @@
 * [Conclusions](#conclusions)
 * [Acknowledgements](#acknowledgements)
 
-<!-- You can include any other section that is pertinent to your problem -->
-
 ## General Information
-- Provide general information about your project here.
-- What is the background of your project?
-- What is the business probem that your project is trying to solve?
-- What is the dataset that is being used?
+- Problem Statement
+	-  &nbsp;&nbsp;&nbsp;&nbsp;BoomBikes, a U.S. bike-sharing company, seeks to understand factors that impact the demand for shared bikes, particularly after the COVID-19 pandemic and lockdown.
 
-<!-- You don't have to answer all the questions - just the ones relevant to your project. -->
+- Data Set
+	- Days Data Set was considered which has all the attributes contributing to the count of Bike rentals per day 
+	 
+- Approach for analysis
+1. Perform EDA	
+	- This step involves reading and understanding the dataset via Visualization
+
+2. Data Prepartion for Dummy variables and splitting the data to Train and Test
+	- In this step, we create dummy variables for Categorical Fileds and split the data as Train and Test set
+
+3. Build Linear Regression Model
+	- This part focuses on building the Linear Regression Model using relevant Feature selection methods
+   
+4. Residual Analysis of the Train Set
+	- This part focuses on analyzing the Residual Errors to ensure they fulfill the assumptions of Linear Regression.
+
+5. Predictions and Model Evaluation
+	- Model Predictions with Test Set and Evaluation using R Squared.
+
+
+
 
 ## Conclusions
-- Conclusion 1 from the analysis
-- Conclusion 2 from the analysis
-- Conclusion 3 from the analysis
-- Conclusion 4 from the analysis
-
-<!-- You don't have to answer all the questions - just the ones relevant to your project. -->
+- OutCome of EDA 
+	- temp , yr, season , weather_sit have a strong association with target cnt
+	- holiday , working day have a correlation with target cnt but not very signoficant
+	- weekday, mnth are dropped since the same reference can be obtained from other fields like holiday and season
+	- multicollinearity exists bewteen fields temp , atemp
+	
+- OutCome of Dummy variables and splitting the data to Train and Test
+    - Dummy variables Createdeted for season , weather_si and data was split as Train and Test
+ 
+- Outcome of Build Linear Regression Model
+    - LR model was created using statsmodel
+	- atemp' was dropped since it had high VIF and p-value
+	- 'hum' was dropped since it had high VIF
+	- 'workingday' was dropped since it had high p-value
+	
+- Outcome of Residual Analysis 
+	- Error Terms are normally distributed
+	- Error Terms have a constant variance centered towards zero
+	- Error Terms are independent of each other
+	
+- Outcome of Predictions and Model Evaluation
+	- R squared was 0.80
+	- The top 3 Features are temp , yr and weathersit(Light Rain and Snow)
+    - $ cnt = 0.234 \times yr - 0.087 \times holiday + 0.466 \times temp - 0.154 \times windspeed - 0.082 \times season\_spring + 0.037 \times season\_summer + 0.075 \times season\_winter - 0.076 \times weathersit\_Cloudy - 0.279 \times weathersit\_LightRainSnow $
+ 	
 
 
 ## Technologies Used
-- library - version 1.0
-- library - version 2.0
-- library - version 3.0
+- pandas - version 2.2.2
+- numpy - version 1.26.4
+- matplotlib - version 3.8.4
+- seaborn - version 0.13.2
+- scikit-learn - version 1.4.2
+- statsmodels - version 0.14.2
 
-<!-- As the libraries versions keep on changing, it is recommended to mention the version of library used in this project -->
+
 
 ## Acknowledgements
 Give credit here.
-- This project was inspired by...
-- References if any...
-- This project was based on [this tutorial](https://www.example.com).
+- This project was inspired by Machine Learning Course and Lecture Notes as part of IIIT-B PG Program in a ML and AI
 
 
 ## Contact
-Created by [@githubusername] - feel free to contact me!
-
-
-<!-- Optional -->
-<!-- ## License -->
-<!-- This project is open source and available under the [... License](). -->
-
-<!-- You don't have to include all sections - just the one's relevant to your project -->
+Created by [@pradeephm31] - feel free to contact me!
