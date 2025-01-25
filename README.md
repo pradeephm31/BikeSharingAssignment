@@ -42,11 +42,11 @@
 	- multicollinearity exists bewteen fields temp , atemp
 	
 - OutCome of Dummy variables and splitting the data to Train and Test
-    - Dummy variables Createdeted for season , weather_si and data was split as Train and Test
+    - Dummy variables Created for season , weather_si and data was split as Train and Test
  
 - Outcome of Build Linear Regression Model
     - LR model was created using statsmodel
-	- atemp' was dropped since it had high VIF and p-value
+	- 'atemp' was dropped since it had high VIF and p-value
 	- 'hum' was dropped since it had high VIF
 	- 'workingday' was dropped since it had high p-value
 	
@@ -58,7 +58,7 @@
 - Outcome of Predictions and Model Evaluation
 	- R squared was 0.80
 	- The top 3 Features are temp , yr and weathersit(Light Rain and Snow)
-    - $ cnt = 0.234 \times yr - 0.087 \times holiday + 0.466 \times temp - 0.154 \times windspeed - 0.082 \times season\_spring + 0.037 \times season\_summer + 0.075 \times season\_winter - 0.076 \times weathersit\_Cloudy - 0.279 \times weathersit\_LightRainSnow $
+    - $ cnt = 0.234 x yr - 0.087 x holiday + 0.466 x temp - 0.154 x windspeed - 0.082 x season\_spring + 0.037 x season\_summer + 0.075 x season\_winter - 0.076 x weathersit\_Cloudy - 0.279 x weathersit\_LightRainSnow $
  	
 
 
